@@ -17,7 +17,7 @@ RUN pip3 install flask uwsgi
 RUN mkdir -p /app
 COPY ./app/* /app/
 
-# COPY ./app/uwsgi.ini /etc/uwsgi/
+COPY ./app/uwsgi.ini /etc/uwsgi/
 
 WORKDIR /app
 CMD uwsgi --socket 0.0.0.0:80 --protocol=http -w wsgi:app
